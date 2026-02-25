@@ -1,0 +1,22 @@
+<div class="list-container">
+  <div class="list-header">
+    <h2>Liste des Suggestions</h2>
+    <button class="btn-add" [routerLink]="['add']">+ Ajouter suggestion</button>
+  </div>
+
+  <ul class="suggestion-list">
+    <li *ngFor="let suggestion of suggestions" class="suggestion-item">
+      <div class="suggestion-info">
+        <strong>{{ suggestion.title }}</strong>
+        <span class="category">{{ suggestion.category }}</span>
+        <span class="status">{{ suggestion.status }}</span>
+      </div>
+      <div class="suggestion-meta">
+        <span class="likes">{{ suggestion.nbLikes }} likes</span>
+        <button class="btn-details" [routerLink]="[suggestion.id]">Détails</button>
+      </div>
+    </li>
+  </ul>
+
+  <p *ngIf="suggestions.length === 0" class="empty-message">Aucune suggestion pour le moment.</p>
+</div>
